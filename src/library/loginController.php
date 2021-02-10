@@ -12,4 +12,7 @@ if (isset($_POST["email"])) {
     header("Refresh: 0; URL=../../index.php?error=Incorrect credentials");
     exit();
   }
+}else if (isset($_GET["logout"])){
+  logout(false);
 }
+

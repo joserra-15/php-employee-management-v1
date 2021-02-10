@@ -20,6 +20,16 @@ function saveSessionData ($user){
   $_SESSION["password"] = $user->{"password"};
   $_SESSION["email"] = $user->{"email"};
   $_SESSION["time"] = time();
-  $_SESSION["lifeTime"] = 600;
+  $_SESSION["lifeTime"] = 100000;
 
+}
+
+
+function logout($message){
+  session_start();
+  session_destroy();
+  echo "whaaat";
+  $url = $message? "?error=$message" : "";
+  header("Location: ../../index.php$url");
+  exit();
 }
