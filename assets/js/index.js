@@ -1,87 +1,49 @@
-var clients = [
-  {
-    Name: "Otto Clay",
-    Age: 25,
-    Country: 1,
-    Address: "Ap #897-1459 Quam Avenue",
-    Married: false,
-  },
-  {
-    Name: "Connor Johnston",
-    Age: 45,
-    Country: 2,
-    Address: "Ap #370-4647 Dis Av.",
-    Married: true,
-  },
-  {
-    Name: "Lacey Hess",
-    Age: 29,
-    Country: 3,
-    Address: "Ap #365-8835 Integer St.",
-    Married: false,
-  },
-  {
-    Name: "Timothy Henson",
-    Age: 56,
-    Country: 1,
-    Address: "911-5143 Luctus Ave",
-    Married: true,
-  },
-  {
-    Name: "Ramona Benton",
-    Age: 32,
-    Country: 3,
-    Address: "Ap #614-689 Vehicula Street",
-    Married: false,
-  },
-];
-
-var countries = [
-  { Name: "", Id: 0 },
-  { Name: "United States", Id: 1 },
-  { Name: "Canada", Id: 2 },
-  { Name: "United Kingdom", Id: 3 }
-];
-
-
 $(function () {
-  $.get("./library/employeeController.php").done(console.log)
+  requestToPHP('getAllEmployees').done(data => {
+    console.log(data);
+    $('.header').after("<section id='jsGrid'></section>");
+    $('#jsGrid').jsGrid({
+      width: '100%',
+      height: '800px',
+      inserting: true,
+      editing: true,
+      sorting: true,
+      paging: true,
 
+      data: data,
 
-  $(".header").after("<section id='jsGrid'></section>");
-  // $("#jsGrid").jsGrid({
-  //   width: "100%",
-  //   height: "400px",
-
-  //   inserting: true,
-  //   editing: true,
-  //   sorting: true,
-  //   paging: true,
-
-  //   data: clients,
-
-  //   onItemInserted: function(args) {},   // on done of controller.insertItem
-
-
-  //   fields: [
-  //     { name: "Name", type: "text", width: 150, validate: "required" },
-  //     { name: "Age", type: "number", width: 50 },
-  //     { name: "Address", type: "text", width: 200 },
-  //     {
-  //       name: "Country",
-  //       type: "select",
-  //       items: countries,
-  //       valueField: "Id",
-  //       textField: "Name",
-  //     },
-  //     {
-  //       name: "Married",
-  //       type: "checkbox",
-  //       title: "Is Married",
-  //       sorting: false,
-  //     },
-  //     { type: "control" },
-  //   ],
-  // });
+      fields: [
+        { name: 'id', type: 'number', width: 50, validate: 'required' },
+        { name: 'name', type: 'text', width: 150, validate: 'required' },
+        { name: 'lastName', type: 'text', validate: 'required' },
+        { name: 'email', type: 'text', width: 200, validate: 'required' },
+        { name: 'gender', type: 'text', width: 60, validate: 'required' },
+        { name: 'age', type: 'number', width: 50, validate: 'required' },
+        {
+          name: 'streetAddress',
+          type: 'text',
+          width: 200,
+          validate: 'required',
+        },
+        { name: 'city', type: 'text', width: 200, validate: 'required' },
+        { name: 'state', type: 'text', width: 50, validate: 'required' },
+        { name: 'postalCode', type: 'number', width: 70, validate: 'required' },
+        {
+          name: 'phoneNumber',
+          type: 'number',
+          width: 100,
+          validate: 'required',
+        },
+      ],
+    });
+  });
 });
 
+const requestToPHP = (action, method = 'GET', data = '') => {
+  request = {
+    url: './library/employeeController.php',
+    data: { action: action, data: data },
+    type: method,
+  };
+  return $.ajax(request);
+};
