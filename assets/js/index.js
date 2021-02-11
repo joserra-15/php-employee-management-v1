@@ -9,9 +9,10 @@ $(function () {
       sorting: true,
       paging: true,
       datatype: 'json',
+      editing: true,
 
       onItemDeleting: args =>
-        requestToPHP('deleteEmployee', 'DELETE', args.item),
+        requestToPHP('deleteEmployee', 'DELETE', args.item.id),
       onItemInserting: args => requestToPHP('addEmployee', 'POST', args.item),
       onItemUpdating: args =>
         requestToPHP('updateEmployee', 'PATCH', args.item),
@@ -19,7 +20,7 @@ $(function () {
       deleteConfirm: 'Do you really want to delete the client?',
       data: data,
 
-      rowClick: function(args) {
+      rowClick: function (args) {
         window.location.href = `employee.php?id=${args.item.id}`;
       },
 
