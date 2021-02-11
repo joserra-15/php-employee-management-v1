@@ -1,7 +1,8 @@
 <?php
 require("employeeManager.php");
 $queryParameters = getQueryStringParameters();
-if ($queryParameters['action'] == 'getAllEmployees') {
+
+if ($queryParameters['action'] == 'getAllEmployees' && $queryParameters['method'] == 'GET') {
   header('Content-Type: application/json');
-  echo json_encode(getAllEmployees());
+  echo getAllEmployees();
 }

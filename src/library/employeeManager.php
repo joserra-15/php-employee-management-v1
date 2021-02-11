@@ -39,12 +39,8 @@ function removeAvatar($id)
 
 function getQueryStringParameters(): array
 {
-  $data = array('action' => '', 'data' => '');
-  foreach (explode('&', $_SERVER['QUERY_STRING']) as $value) {
-    $result = explode('=', $value);
-    $data[$result[0]] = $result[1];
-  };
-  return $data;
+  $_REQUEST['method'] = $_SERVER['REQUEST_METHOD'];
+  return $_REQUEST;
 }
 
 function getNextIdentifier(array $employeesCollection): int
@@ -52,9 +48,9 @@ function getNextIdentifier(array $employeesCollection): int
   return count($employeesCollection) + 1;
 }
 
-function getAllEmployees(): array
+function getAllEmployees()
 {
-  $data = json_decode(file_get_contents("../../resources/employees.json"), true);
+  $data = file_get_contents("../../resources/employees.json");
 
   return $data;
 }
