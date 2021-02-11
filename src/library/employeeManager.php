@@ -45,3 +45,8 @@ function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
 }
+
+function getAllEmployees()
+{
+// TODO implement it
+}
