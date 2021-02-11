@@ -1,8 +1,15 @@
 <header class="header">
   <h1>Employees Management</h1>
   <section>
-    <button>Dashboard</button>
-    <button>Employee</button>
+    
+    <form action="./dashboard.php" method="GET">
+      <input type="submit" name="dashboard" value="Dashboard">
+    </form>
+
+    <form action="./employee.php" method="GET">
+    <input type="submit" name="employee" value="Employee">
+    </form>
+
   </section>
   <form action="./library/loginController.php" method="GET">
     <input type="submit" name="logout" value="Logout">

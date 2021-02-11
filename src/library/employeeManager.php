@@ -27,7 +27,14 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-  // TODO implement it
+  $data = json_decode(file_get_contents("../resources/employees.json"), true);
+  foreach ($data as $value){
+    if ($value["id"] == $id) {
+      $employee = $value;
+    }
+  }
+
+  return $employee;
 }
 
 

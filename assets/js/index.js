@@ -19,6 +19,10 @@ $(function () {
       deleteConfirm: 'Do you really want to delete the client?',
       data: data,
 
+      rowClick: function(args) {
+        window.location.href = `employee.php?id=${args.item.id}`;
+      },
+
       fields: [
         {
           name: 'name',
