@@ -2,8 +2,8 @@
 
 require("loginManager.php");
 
-if (isset($_POST["email"])) {
-  if ($user = validateUser($_POST["email"], $_POST["password"])) {
+if (isset($_REQUEST["email"])) {
+  if ($user = validateUser($_REQUEST["email"], $_REQUEST["password"])) {
     saveSessionData($user);
     $url = '../dashboard.php';
     header('Location: ' . $url);
@@ -12,6 +12,6 @@ if (isset($_POST["email"])) {
     header("Refresh: 0; URL=../../index.php?error=Incorrect credentials");
     exit();
   }
-} else if (isset($_GET["logout"])) {
+} else if (isset($_REQUEST["logout"])) {
   logout(false, '../');
 }

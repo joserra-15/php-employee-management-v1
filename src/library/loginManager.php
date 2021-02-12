@@ -26,13 +26,13 @@ function saveSessionData($user)
 }
 
 
-function logout($message, $button = '')
+function logout($message, $parentFolder = '')
 {
   session_start();
   session_destroy();
 
   $url = $message ? "?error=$message" : "";
 
-  header("Location: $button../index.php$url");
+  header("Location: $parentFolder../index.php$url");
   exit();
 }
