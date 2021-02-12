@@ -11,9 +11,13 @@ $(function () {
       datatype: 'json',
       editing: true,
 
-      onItemDeleting: args => requestToPHP('DELETE', {'data':args.item.id}),
+      onItemDeleting: args => requestToPHP('DELETE', { data: args.item.id }),
       onItemInserting: args =>
-        requestToPHP('POST', args.item).done(resp => (args.item.id = resp)),
+        requestToPHP('POST', args.item).done(resp => {
+          args.item.id = resp;
+          args.item.lastName = '';
+          args.item.gender = '';
+        }),
       onItemUpdating: args =>
         requestToPHP('updateEmployee', 'PATCH', args.item),
 

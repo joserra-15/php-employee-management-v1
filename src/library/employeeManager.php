@@ -25,10 +25,7 @@ function deleteEmployee(string $id)
       $position = $i;
     }
   }
-
-  unset($data[$position]);
-
-  $data = array_values($data);
+  array_splice($data, $position, 1);
   $data = json_encode($data, JSON_PRETTY_PRINT);
   file_put_contents('users.json', $data); //TODO change path
 }
@@ -36,7 +33,24 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-  // TODO implement it
+  $data = json_decode(file_get_contents("../../resources/employees.json"), true);
+  for ($i = 0; $i < count($data); $i++) {
+    if ($data[$i]['id'] == $updateEmployee['id']) {
+      $position = $i;
+    }
+  }
+  $data[$position]['name'] = $updateEmployee['name'];
+  $data[$position]['lastName'] = $updateEmployee['lastName'];
+  $data[$position]['age'] = $updateEmployee['age'];
+  $data[$position]['email'] = $updateEmployee['email'];
+  $data[$position]['gender'] = $updateEmployee['gender'];
+  $data[$position]['streetAddress'] = $updateEmployee['streetAddress'];
+  $data[$position]['city'] = $updateEmployee['city'];
+  $data[$position]['state'] = $updateEmployee['state'];
+  $data[$position]['postalCode'] = $updateEmployee['postalCode'];
+  $data[$position]['phoneNumber'] = $updateEmployee['phoneNumber'];
+  $data = json_encode($data, JSON_PRETTY_PRINT);
+  file_put_contents('../../resources/employees.json', $data);
 }
 
 
