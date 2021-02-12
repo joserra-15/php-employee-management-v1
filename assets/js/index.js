@@ -1,5 +1,5 @@
 $(function () {
-  requestToPHP('getAllEmployees').done(data => {
+  requestToPHP('GET', 'getAllEmployees').done(data => {
     console.log(data);
     $('.header').after("<section id='jsGrid'></section>");
     $('#jsGrid').jsGrid({
@@ -11,9 +11,9 @@ $(function () {
       datatype: 'json',
       editing: true,
 
-      onItemDeleting: args =>
-        requestToPHP('deleteEmployee', 'DELETE', args.item.id),
-      onItemInserting: args => requestToPHP('addEmployee', 'POST', args.item),
+      onItemDeleting: args => requestToPHP('DELETE', {'data':args.item.id}),
+      onItemInserting: args =>
+        requestToPHP('POST', args.item).done(resp => (args.item.id = resp)),
       onItemUpdating: args =>
         requestToPHP('updateEmployee', 'PATCH', args.item),
 
@@ -87,10 +87,10 @@ $(function () {
   });
 });
 
-const requestToPHP = (action, method = 'GET', data = '') => {
+const requestToPHP = (method = 'GET', data = '') => {
   request = {
     url: './library/employeeController.php',
-    data: { action: action, data: data },
+    data: data,
     type: method,
   };
   return $.ajax(request);

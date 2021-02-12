@@ -6,19 +6,23 @@ switch ($_SERVER['REQUEST_METHOD']) {
     if (isset($_REQUEST['id'])) {
       $employee = getEmployee($_REQUEST['id']);
     }
-    if (isset($_REQUEST['action'])){
-      if ($_REQUEST['action'] == 'getAllEmployees') {
-        header('Content-Type: application/json');
-        echo getAllEmployees();
-      }
+    if (isset($_REQUEST['getAllEmployees'])) {
+      header('Content-Type: application/json');
+      echo getAllEmployees();
     }
     break;
   case 'POST':
-    $_REQUEST['data']['id'] = getNextIdentifier(json_decode(getAllEmployees(), true));
-    isset($_REQUEST['data']['lastName'])?$_REQUEST['data']['lastName']:$_REQUEST['data']['lastName'] = "";
-    isset($_REQUEST['data']['gender'])?$_REQUEST['data']['gender']:$_REQUEST['data']['gender'] = "";
-    addEmployee($_REQUEST['data']);
-    echo $_REQUEST['data']['id'];
+    $_REQUEST['id'] = getNextIdentifier(json_decode(getAllEmployees(), true));
+    isset($_REQUEST['lastName']) ? $_REQUEST['lastName'] : $_REQUEST['lastName'] = "";
+    isset($_REQUEST['gender']) ? $_REQUEST['gender'] : $_REQUEST['gender'] = "";
+    addEmployee($_REQUEST);
+    if (isset($_REQUEST['employeePage'])) {
+      header('Location: dashboard.php');
+    } else {
+      header('Content-Type: application/json');
+      echo json_encode($_REQUEST['id']);
+    }
+
     break;
   case 'PUT':
     break;

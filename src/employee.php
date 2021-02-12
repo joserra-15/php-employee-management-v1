@@ -29,7 +29,7 @@ require("./library/employeeController.php");
   ?>
 
   <section class="wrapper">
-    <form action="">
+    <form action="./library/employeeController.php" method="<?= isset($employee) ? "PUT" : "POST" ?>">
       <label for="name"><input type="text" id="name" name="name" value="<?= isset($employee) ? $employee['name'] : ''; ?>"></label>
       <label for="lastName"><input type="text" id="lastName" name="lastName" value="<?= isset($employee) ? $employee['lastName'] : ''; ?>"></label>
       <label for="email"><input type="text" id="email" name="email" value="<?= isset($employee) ? $employee['email'] : ''; ?>"></label>
@@ -40,6 +40,8 @@ require("./library/employeeController.php");
       <label for="age"><input type="text" id="age" name="age" value="<?= isset($employee) ? $employee['age'] : ''; ?>"></label>
       <label for="postalCode"><input type="text" id="postalCode" name="postalCode" value="<?= isset($employee) ? $employee['postalCode'] : ''; ?>"></label>
       <label for="phoneNumber"><input type="text" id="phoneNumber" name="phoneNumber" value="<?= isset($employee) ? $employee['phoneNumber'] : ''; ?>"></label>
+      <input type="submit" value="<?= isset($employee) ? "Update" : "Create" ?>" name="employeePage">
+      <a href="dashboard.php">Return</a>
     </form>
   </section>
 
