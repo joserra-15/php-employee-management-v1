@@ -31,20 +31,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
     break;
   case 'PUT':
     $query = getQueryStringParameters();
+    updateEmployee($query);
     if (isset($query['employeePage'])) {
-      updateEmployee($query);
       header('Location: ../dashboard.php');
       exit;
-    } else {
-      updateEmployee($query);
-      header('Content-Type: application/json');
-      echo json_encode($_REQUEST['id']);
     }
     break;
   case 'DELETE':
     $queryParameters = getQueryStringParameters();
     deleteEmployee($queryParameters['data']);
-    break;
-  case 'PATCH':
     break;
 }

@@ -18,8 +18,7 @@ $(function () {
           args.item.lastName = '';
           args.item.gender = '';
         }),
-      onItemUpdating: args =>
-        requestToPHP('updateEmployee', 'PATCH', args.item),
+      onItemUpdating: args => requestToPHP('PUT', args.item),
 
       deleteConfirm: 'Do you really want to delete the client?',
       data: data,
