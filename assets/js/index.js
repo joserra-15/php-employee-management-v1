@@ -1,4 +1,6 @@
 $(function () {
+  $('#dashboardButton').addClass('font-weight-bold');
+  $('#employeeButton').addClass('text-muted');
   requestToPHP('GET', 'getAllEmployees').done(data => {
     console.log(data);
     $('.header').after("<section id='jsGrid'></section>");

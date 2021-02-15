@@ -59,7 +59,10 @@ require("./library/employeeController.php");
   <?php
   include("../assets/html/footer.html");
   ?>
-
+  <script>
+    $('#dashboardButton').addClass('text-muted');
+    $('#employeeButton').addClass('font-weight-bold');
+  </script>
 </body>
 
 </html>
