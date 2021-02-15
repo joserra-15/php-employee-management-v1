@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 .width-200{
   width: 120px;
   max-height: 120px;
 }
+=======
+.buttons__header {
+  all: unset;
+  font-family: 'Poppings', 'Times New Roman', Times, serif;
+}
+>>>>>>> 4581342b61f89b487fdc1d9a27aba305fb92725b
