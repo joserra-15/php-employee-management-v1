@@ -85,12 +85,13 @@
         "lastName": "Walker",
         "email": "walkerneil@baz.com",
         "gender": "man",
-        "age": 42,
+        "age": "42",
         "streetAddress": "1",
         "city": "Nashville",
         "state": "TN",
         "postalCode": "90143",
-        "phoneNumber": "45372788192"
+        "phoneNumber": "666-666-6666",
+        "avatar": "https:\/\/images-na.ssl-images-amazon.com\/images\/M\/MV5BMTUzMDM4Nzk2MV5BMl5BanBnXkFtZTcwNTcwNjExOQ@@._V1_UY256_CR2,0,172,256_AL_.jpg"
     },
     {
         "id": 8,
@@ -98,11 +99,26 @@
         "lastName": "Thomson",
         "email": "jackon@network.com",
         "gender": "man",
-        "age": 24,
+        "age": "24",
         "streetAddress": "126",
         "city": "New Orleans",
         "state": "LU",
         "postalCode": "63281",
-        "phoneNumber": "91232876454"
+        "phoneNumber": "912-328-7645",
+        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/0FH3WczI.jpg"
+    },
+    {
+        "avatar": "https:\/\/randomuser.me\/api\/portraits\/men\/33.jpg",
+        "name": "p",
+        "lastName": "p",
+        "email": "p",
+        "gender": "man",
+        "city": "p",
+        "streetAddress": "p",
+        "state": "p",
+        "age": "p",
+        "postalCode": "p",
+        "phoneNumber": "p",
+        "id": 9
     }
 ]
