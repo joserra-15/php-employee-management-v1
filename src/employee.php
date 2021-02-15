@@ -22,7 +22,7 @@ require("./library/employeeController.php");
   <title>Employee</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 
 <body>
@@ -38,21 +38,21 @@ require("./library/employeeController.php");
 
       <img src="<?= isset($employee['avatar']) ? $employee['avatar'] : "../assets/images/no-user.png" ?>" class="img_profilee w-500px" alt="avatar">
 
-      <label for="name">Name: <input type="text" id="name" name="name" value="<?= isset($employee) ? $employee['name'] : ''; ?>"></label>
-      <label for="lastName">Last Name:<input type="text" id="lastName" name="lastName" value="<?= isset($employee) ? $employee['lastName'] : ''; ?>"></label>
-      <label for="email">Email:<input type="email" id="email" name="email" value="<?= isset($employee) ? $employee['email'] : ''; ?>"></label>
-      <label for="uGender" class="form-label">Gender: </label><br>
+      <label for="name">Name: <input type="text" id="name" name="name" value="<?= isset($employee) ? $employee['name'] : ''; ?>">
+      <label for="lastName">Last Name:<input type="text" id="lastName" name="lastName" value="<?= isset($employee) ? $employee['lastName'] : ''; ?>">
+      <label for="email">Email:<input type="email" id="email" name="email" value="<?= isset($employee) ? $employee['email'] : ''; ?>">
+      <label for="uGender" class="form-label">Gender: 
       <select class="form-control" id="uGender" name="gender" required>
         <option value="man" <?= isset($employee) ? ($employee['gender'] == "man" ? "selected" : "") : '' ?>>Man</option>
         <option value="woman" <?= isset($employee) ? ($employee['gender'] == "woman" ? "selected" : "") : '' ?>>Woman</option>
         <option value="nobinary" <?= isset($employee) ? ($employee['gender'] == "nobinary" ? "selected" : "") : '' ?>>No binary</option>
       </select>
-      <label for="city">City: <input type="text" id="city" name="city" value="<?= isset($employee) ? $employee['city'] : ''; ?>"></label>
-      <label for="streetAddress">Street Address: <input type="text" id="streetAddress" name="streetAddress" value="<?= isset($employee) ? $employee['streetAddress'] : ''; ?>"></label>
-      <label for="state">State: <input type="text" id="state" name="state" value="<?= isset($employee) ? $employee['state'] : ''; ?>"></label>
-      <label for="age">Age: <input type="number" id="age" name="age" value="<?= isset($employee) ? $employee['age'] : ''; ?>"></label>
-      <label for="postalCode">Postal Code: <input type="number" id="postalCode" name="postalCode" value="<?= isset($employee) ? $employee['postalCode'] : ''; ?>"></label>
-      <label for="phoneNumber">Phone Number: <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNumber" name="phoneNumber" value="<?= isset($employee) ? $employee['phoneNumber'] : ''; ?>" required></label>
+      <label for="city">City: </label><input type="text" id="city" name="city" value="<?= isset($employee) ? $employee['city'] : ''; ?>">
+      <label for="streetAddress">Street Address: </label><input type="text" id="streetAddress" name="streetAddress" value="<?= isset($employee) ? $employee['streetAddress'] : ''; ?>">
+      <label for="state">State: </label><input type="text" id="state" name="state" value="<?= isset($employee) ? $employee['state'] : ''; ?>">
+      <label for="age">Age: </label><input type="number" id="age" name="age" value="<?= isset($employee) ? $employee['age'] : ''; ?>">
+      <label for="postalCode">Postal Code: </label><input type="number" id="postalCode" name="postalCode" value="<?= isset($employee) ? $employee['postalCode'] : ''; ?>">
+      <label for="phoneNumber">Phone Number: </label><input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNumber" name="phoneNumber" value="<?= isset($employee) ? $employee['phoneNumber'] : ''; ?>" required>
       <input type="hidden" name="id" value="<?= isset($employee) ? $employee['id'] : ''; ?>">
       <input type="submit" value="<?= isset($employee) ? "Update" : "Create" ?>" name="employeePage">
       <a href="dashboard.php">Return</a>
