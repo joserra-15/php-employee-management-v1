@@ -1,1 +1,9 @@
-<!-- TODO If you are going to add the extra feature implement here the image selection as a gallery or whatever you like -->
+
+<?php
+require("./library/avatarsApi.php");
+
+$counter = 1;
+foreach ($result as $avatar) {
+  echo '<label for="avatar' . $counter . '"><input type="radio" id="avatar' . $counter . '" name="avatar" value="' . urldecode($avatar['photo']) . '" ><img src="' . urldecode($avatar['photo']) . '" alt="avatar' . $counter . '"></label>';
+  $counter++;
+}
