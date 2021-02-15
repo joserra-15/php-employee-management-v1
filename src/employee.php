@@ -12,6 +12,8 @@ if (isset($_SESSION["userId"])) {
 
 require("./library/employeeController.php");
 
+require("./library/avatarsApi.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +33,16 @@ require("./library/employeeController.php");
   <section class="wrapper">
     <form action="./library/employeeController.php" method="POST">
       <input type="hidden" name="_method" value="<?= isset($employee) ? "PUT" : "POST" ?>">
+
+      <?php
+      $counter = 1;
+      foreach ($result as $avatar) {
+        echo '<label for="avatar'.$counter.'"><input type="radio" id="avatar'.$counter.'" name="avatar" value="" ><img src="' . $avatar['photo'] . '" alt="avatar'.$counter.'"></label>';
+        $counter++;
+      }
+
+      ?>
+
       <label for="name"><input type="text" id="name" name="name" value="<?= isset($employee) ? $employee['name'] : ''; ?>"></label>
       <label for="lastName"><input type="text" id="lastName" name="lastName" value="<?= isset($employee) ? $employee['lastName'] : ''; ?>"></label>
       <label for="email"><input type="text" id="email" name="email" value="<?= isset($employee) ? $employee['email'] : ''; ?>"></label>

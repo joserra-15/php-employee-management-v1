@@ -16,7 +16,6 @@ function addEmployee(array $newEmployee)
   file_put_contents('../../resources/employees.json', $updatedData);
 }
 
-
 function deleteEmployee(string $id)
 {
   $data = json_decode(file_get_contents("../../resources/employees.json"), true);
