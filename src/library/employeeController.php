@@ -7,7 +7,6 @@ if (isset($_REQUEST['_method'])) {
 switch ($_SERVER['REQUEST_METHOD']) {
   case 'GET':
     if (isset($_REQUEST['id'])) {
-      require("./library/avatarsApi.php");
       $employee = getEmployee($_REQUEST['id']);
     }
     if (isset($_REQUEST['getAllEmployees'])) {

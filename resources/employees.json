@@ -10,7 +10,8 @@
         "state": "CA",
         "age": "24",
         "postalCode": "394221",
-        "phoneNumber": "7383627627"
+        "phoneNumber": "7383627627",
+        "avatar": "https:\/\/images.pexels.com\/photos\/2379004\/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&crop=faces&fit=crop&h=200&w=200"
     },
     {
         "id": "2",
@@ -36,7 +37,8 @@
         "state": "CA",
         "age": "29",
         "postalCode": "098765",
-        "phoneNumber": "9983632461"
+        "phoneNumber": "9983632461",
+        "avatar": "https:\/\/images.unsplash.com\/photo-1499314014841-8664a8fba520?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=0dd31cdcac9fde5d972072b1531a6559"
     },
     {
         "id": 4,
