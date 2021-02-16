@@ -26,7 +26,7 @@ function deleteEmployee(string $id)
   }
   array_splice($data, $position, 1);
   $data = json_encode($data, JSON_PRETTY_PRINT);
-  file_put_contents('users.json', $data); //TODO change path
+  file_put_contents('../../resources/employees.json', $data);
 }
 
 
