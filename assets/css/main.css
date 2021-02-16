@@ -1,11 +1,22 @@
-<<<<<<< HEAD
-.width-200{
-  width: 120px;
-  max-height: 120px;
+.width-120{
+  width: 120px !important;
+  max-height: 120px !important;
 }
-=======
 .buttons__header {
   all: unset;
   font-family: 'Poppings', 'Times New Roman', Times, serif;
 }
->>>>>>> 4581342b61f89b487fdc1d9a27aba305fb92725b
+
+.radio-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type=radio]{
+  display: none;
+}
+
+input[type=radio]:checked + img{
+  border: 2px solid black;
+}

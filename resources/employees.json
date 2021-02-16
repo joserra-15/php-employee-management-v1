@@ -59,12 +59,13 @@
         "lastName": "Smith",
         "email": "susanmith@baz.com",
         "gender": "woman",
-        "age": 28,
+        "age": "28",
         "streetAddress": "43",
         "city": "Louisville",
         "state": "KNT",
         "postalCode": "445321",
-        "phoneNumber": "224355488976"
+        "phoneNumber": "224-355-4889",
+        "avatar": null
     },
     {
         "id": 6,
