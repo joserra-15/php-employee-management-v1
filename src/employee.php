@@ -31,32 +31,34 @@ require("./library/employeeController.php");
   ?>
 
   <section class="wrapper container">
-    <form action="./library/employeeController.php" method="POST" class="was-validated">
+    <form action="./library/employeeController.php" method="POST" class="was-validated my-3">
       <input type="hidden" name="_method" value="<?= isset($employee) ? "PUT" : "POST" ?>">
+
+      <div class="wrapper-profile-img">
+        <img src="<?= isset($employee['avatar']) ? $employee['avatar'] : "../assets/images/no-user.png" ?>" class="profile-img img-thumbnail rounded-circle" alt="avatar">
+      </div>
 
       <div class="radio-wrapper">
         <?php require('imageGallery.php'); ?>
       </div>
-      
-      <img src="<?= isset($employee['avatar']) ? $employee['avatar'] : "../assets/images/no-user.png" ?>" class="img_profilee w-500px img-thumbnail rounded-circle" alt="avatar">
 
       <div class="form-group">
         <label for="name">Name:</label>
-        <input class="form-control" type="text" id="name" name="name" value="<?= isset($employee) ? $employee['name'] : ''; ?>">
+        <input class="form-control" type="text" id="name" name="name" value="<?= isset($employee) ? $employee['name'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="lastName">Last Name:</label>
-        <input class="form-control" type="text" id="lastName" name="lastName" value="<?= isset($employee) ? $employee['lastName'] : ''; ?>">
+        <input class="form-control" type="text" id="lastName" name="lastName" value="<?= isset($employee) ? $employee['lastName'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="email">Email:</label>
-        <input class="form-control" type="email" id="email" name="email" value="<?= isset($employee) ? $employee['email'] : ''; ?>">
+        <input class="form-control" type="email" id="email" name="email" value="<?= isset($employee) ? $employee['email'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
@@ -66,7 +68,7 @@ require("./library/employeeController.php");
         <select class="form-control" id="uGender" name="gender" required>
           <option value="man" <?= isset($employee) ? ($employee['gender'] == "man" ? "selected" : "") : '' ?>>Man</option>
           <option value="woman" <?= isset($employee) ? ($employee['gender'] == "woman" ? "selected" : "") : '' ?>>Woman</option>
-          <option value="nobinary" <?= isset($employee) ? ($employee['gender'] == "nobinary" ? "selected" : "") : '' ?>>No binary</option>
+          <option value="nobinary" selected <?= isset($employee) ? ($employee['gender'] == "nobinary" ? "selected" : "") : '' ?>>No binary</option>
         </select>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
@@ -74,35 +76,35 @@ require("./library/employeeController.php");
 
       <div class="form-group">
         <label for="city">City:</label>
-        <input class="form-control" type="text" id="city" name="city" value="<?= isset($employee) ? $employee['city'] : ''; ?>">
+        <input class="form-control" type="text" id="city" name="city" value="<?= isset($employee) ? $employee['city'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="streetAddress">Street Address: </label>
-        <input class="form-control" type="text" id="streetAddress" name="streetAddress" value="<?= isset($employee) ? $employee['streetAddress'] : ''; ?>">
+        <input class="form-control" type="text" id="streetAddress" name="streetAddress" value="<?= isset($employee) ? $employee['streetAddress'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="state">State: </label>
-        <input class="form-control" type="text" id="state" name="state" value="<?= isset($employee) ? $employee['state'] : ''; ?>">
+        <input class="form-control" type="text" id="state" name="state" value="<?= isset($employee) ? $employee['state'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="age">Age: </label>
-        <input class="form-control" type="number" id="age" name="age" value="<?= isset($employee) ? $employee['age'] : ''; ?>">
+        <input class="form-control" type="number" id="age" name="age" value="<?= isset($employee) ? $employee['age'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
       <div class="form-group">
         <label for="postalCode">Postal Code: </label>
-        <input class="form-control" type="number" id="postalCode" name="postalCode" value="<?= isset($employee) ? $employee['postalCode'] : ''; ?>">
+        <input class="form-control" type="number" id="postalCode" name="postalCode" value="<?= isset($employee) ? $employee['postalCode'] : ''; ?>"required>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Please fill out this field.</div>
       </div>
