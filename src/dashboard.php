@@ -32,6 +32,9 @@ if (isset($_SESSION["userId"])) {
 
 <body>
   <?php
+  if (isset($_GET["message"])) {
+    echo "<div class='toast position-absolute d-flex justify-content-center px-1 bg-success'><p class='toast-body text-white text-center h-100'>" . $_GET['message'] . "</p></div>";
+  }
   include("../assets/html/header.html");
   include("../assets/html/footer.html");
   ?>

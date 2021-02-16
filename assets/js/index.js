@@ -1,4 +1,8 @@
 $(function () {
+  $('.toast').toast({
+    delay: 3000,
+  });
+  $('.toast').toast('show');
   $('#dashboardButton').addClass('font-weight-bold');
   $('#employeeButton').addClass('text-muted');
   requestToPHP('GET', 'getAllEmployees').done(data => {
@@ -13,14 +17,21 @@ $(function () {
       datatype: 'json',
       editing: true,
 
-      onItemDeleting: args => requestToPHP('DELETE', { data: args.item.id }),
+      onItemDeleting: args =>
+        requestToPHP('DELETE', { data: args.item.id }).done(() =>
+          notifyToast(`${args.item.name} deleted`),
+        ),
       onItemInserting: args =>
         requestToPHP('POST', args.item).done(resp => {
           args.item.id = resp;
           args.item.lastName = '';
           args.item.gender = '';
+          notifyToast(`${args.item.name} created`);
         }),
-      onItemUpdating: args => requestToPHP('PUT', args.item),
+      onItemUpdating: args =>
+        requestToPHP('PUT', args.item).done(() =>
+          notifyToast(`${args.item.name} updated`),
+        ),
 
       deleteConfirm: 'Do you really want to delete the client?',
       data: data,
@@ -99,4 +110,19 @@ const requestToPHP = (method = 'GET', data = '') => {
     type: method,
   };
   return $.ajax(request);
+};
+
+const notifyToast = message => {
+  $('.header').after(
+    `<div class='toast position-absolute d-flex justify-content-center px-1 bg-success'>
+    <p class='toast-body text-white text-center h-100'>${message}</p>
+    </div>`,
+  );
+  $('.toast').toast({
+    delay: 1000,
+  });
+  $('.toast').toast('show');
+  setTimeout(function () {
+    $('.toast').remove();
+  }, 1000);
 };

@@ -1,4 +1,4 @@
-.width-120{
+.width-120 {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -9,7 +9,7 @@
   font-family: 'Poppings', 'Times New Roman', Times, serif;
 }
 
-.radio-wrapper{
+.radio-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,24 +17,24 @@
   padding-bottom: 15px;
 }
 
-input[type=radio]{
+input[type='radio'] {
   display: none;
 }
 
-input[type=radio]:checked + img{
+input[type='radio']:checked + img {
   border: 2px solid black;
 }
 
-input[type=radio]:hover + img{
+input[type='radio']:hover + img {
   width: 130px;
-  max-height: 135px
+  max-height: 135px;
 }
 
-.radio-wrapper > div{
-  padding: 7px
+.radio-wrapper > div {
+  padding: 7px;
 }
 
-.profile-img{
+.profile-img {
   width: 250px;
   height: 250px;
   object-fit: cover;
@@ -42,8 +42,14 @@ input[type=radio]:hover + img{
   margin: 0 auto;
 }
 
-.wrapper-profile-img{
+.wrapper-profile-img {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+.toast {
+  top: 3px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
 }

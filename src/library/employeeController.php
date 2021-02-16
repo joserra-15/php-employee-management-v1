@@ -19,7 +19,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
     if (isset($_REQUEST['employeePage'])) {
       array_splice($_REQUEST, array_search('employeePage', array_keys($_REQUEST)), 1);
       addEmployee($_REQUEST);
-      header('Location: ../dashboard.php');
+      header('Location: ../dashboard.php?message=Employee create succesful');
       exit;
     } else {
       $_REQUEST['lastName'] = "";
@@ -33,7 +33,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
     $query = getQueryStringParameters();
     updateEmployee($query);
     if (isset($query['employeePage'])) {
-      header('Location: ../dashboard.php');
+      header('Location: ../dashboard.php?message=Employee update succesful');
       exit;
     }
     break;
