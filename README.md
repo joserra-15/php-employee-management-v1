@@ -27,7 +27,7 @@ _Then you need to install all the project dependencies, for this, in the path of
 ```
 npm install.
 ```
-_Also you will need an API key to get randon avatar images. You can get your API key in:  https://uifaces.co/api-key _
+_Also you will need an API key to get randon avatar images. You can get your API key in:_  https://uifaces.co/api-key
 
 ## Desploy 📦
 
