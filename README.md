@@ -4,7 +4,7 @@ _This proyect is an aproximation to an employye manager from a company_
 
 ## Starting 🚀
 
-_First you need to have a local copy of the repository, for this you have to do is start your IDE and in the console copy the next command:_
+_First you need to have a local copy of the repository, for this what you have to do is start your IDE and in the console copy the next command:_
 
 ```
 git clone https://github.com/joserra-15/php-employee-management-v1.git
