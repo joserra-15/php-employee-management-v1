@@ -1,6 +1,6 @@
 # PHP-Employeee-manager
 
-_This proyect is a aproximation to a employye manager from a company_
+_This proyect is an aproximation to an employye manager from a company_
 
 ## Starting 🚀
 
